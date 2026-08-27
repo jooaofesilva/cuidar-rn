@@ -7,195 +7,1492 @@
 <meta name="description" content="Plataforma educacional sobre cuidados essenciais com o recém-nascido.">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+
 :root{
- --ink:#1f3a46;--blue:#356b82;--blue2:#eaf3f6;--sage:#e8f0ed;
- --cream:#fbfaf7;--paper:#fff;--muted:#6c7b82;--line:#dce5e8;
- --rose:#f5e9eb;--gold:#b18a57;--shadow:0 16px 45px rgba(31,58,70,.08);
+ --ink:#1f3a46;
+ --blue:#356b82;
+ --blue2:#eaf3f6;
+ --sage:#e8f0ed;
+ --cream:#fbfaf7;
+ --paper:#fff;
+ --muted:#6c7b82;
+ --line:#dce5e8;
+ --rose:#f5e9eb;
+ --gold:#b18a57;
+ --shadow:0 16px 45px rgba(31,58,70,.08);
 }
-*{box-sizing:border-box} html{scroll-behavior:smooth}
-body{margin:0;background:var(--cream);color:var(--ink);font-family:"DM Sans",Arial,sans-serif;line-height:1.65}
-.container{width:min(1120px,90%);margin:auto}
-.header{height:74px;background:rgba(255,255,255,.94);backdrop-filter:blur(15px);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
-.nav{height:100%;display:flex;align-items:center;justify-content:space-between}
-.logo{display:flex;gap:10px;align-items:center;text-decoration:none;color:var(--ink)}
-.logo-mark{width:38px;height:38px;border-radius:12px;background:var(--blue2);display:grid;place-items:center}
-.logo-name{font-weight:700;letter-spacing:-.02em}.logo-sub{font-size:10px;color:var(--muted);display:block;font-weight:500}
-.links{display:flex;gap:25px}.links a{text-decoration:none;color:#52666e;font-size:13px;font-weight:600}.links a:hover{color:var(--blue)}
-.hero{background:#fff;overflow:hidden}
-.hero-grid{min-height:650px;display:grid;grid-template-columns:1.02fr .98fr;align-items:center;gap:55px}
-.eyebrow{font-size:11px;letter-spacing:.17em;text-transform:uppercase;font-weight:700;color:var(--blue)}
-h1,h2,h3{font-family:"Playfair Display",Georgia,serif}
-h1{font-size:clamp(43px,5.7vw,70px);line-height:1.02;letter-spacing:-.035em;margin:17px 0;color:var(--ink)}
-.hero p{font-size:18px;color:var(--muted);max-width:570px;margin:0 0 25px}
-.btn{display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:#fff;text-decoration:none;border:0;border-radius:10px;padding:13px 18px;font-weight:700;font-size:14px;cursor:pointer}
-.btn.light{background:#fff;color:var(--ink);border:1px solid var(--line)}
-.hero-photo{height:540px;border-radius:0 0 0 90px;background:url("https://images.pexels.com/photos/11947827/pexels-photo-11947827.jpeg?auto=compress&cs=tinysrgb&w=1400") center/cover;position:relative}
-.hero-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.3),transparent 35%)}
-.photo-caption{position:absolute;z-index:2;bottom:24px;left:24px;background:rgba(255,255,255,.9);padding:11px 14px;border-radius:10px;font-size:11px;color:var(--muted)}
-section{padding:78px 0}.section-head{max-width:700px;margin:0 auto 38px;text-align:center}.section-head h2{font-size:39px;line-height:1.1;margin:7px 0 10px}.section-head p{margin:0;color:var(--muted)}
-.intro{display:grid;grid-template-columns:1.15fr .85fr;gap:22px}
-.panel{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:29px;box-shadow:var(--shadow)}
-.panel h3{font-size:25px;margin:0 0 10px}.panel p{color:var(--muted);margin-top:0}
-.note{background:var(--blue2);padding:16px 18px;border-left:3px solid var(--blue);border-radius:9px;font-size:14px}
-.learning-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.lesson{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
-.lesson-img{height:165px;background-size:cover;background-position:center}
-.lesson-body{padding:20px}.lesson-number{font-size:10px;color:var(--gold);font-weight:800;letter-spacing:.15em}.lesson h3{font-size:23px;margin:6px 0}.lesson p{font-size:13px;color:var(--muted);margin:0 0 14px}
-.open{border:0;background:none;color:var(--blue);font-weight:700;padding:0;cursor:pointer}
-.detail{display:none;background:#fff;border:1px solid var(--line);border-radius:20px;margin-top:20px;box-shadow:var(--shadow);overflow:hidden}.detail.show{display:block}
-.detail-head{padding:25px 28px;background:linear-gradient(110deg,var(--blue2),#fff)}.detail-head h3{font-size:28px;margin:0}.detail-head p{margin:4px 0 0;color:var(--muted)}
-.detail-body{padding:28px}.steps{display:grid;grid-template-columns:1fr 1fr;gap:13px}.step{background:#f8faf9;border:1px solid #e5ece9;border-radius:13px;padding:16px;font-size:14px}.step b{color:var(--blue)}
-.alert{margin-top:17px;padding:15px;border-radius:13px;background:#f8f1ed;border:1px solid #eadfd8;font-size:13px}
-.principles{background:#edf4f4}.principle-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.principle{text-align:center;padding:22px 15px;background:#fff;border:1px solid var(--line);border-radius:17px}.principle-icon{font-size:27px}.principle strong{display:block;margin-top:8px}.principle span{font-size:12px;color:var(--muted)}
-.quiz-wrap{background:#fff;border:1px solid var(--line);border-radius:22px;padding:30px;box-shadow:var(--shadow)}
-.quiz-top{display:flex;justify-content:space-between;align-items:flex-start;gap:20px}.quiz-top h3{font-size:28px;margin:0}.score{background:var(--sage);padding:7px 12px;border-radius:99px;font-size:12px;font-weight:800;white-space:nowrap}
-.progress{height:7px;background:#e5ecef;border-radius:20px;margin:20px 0 25px;overflow:hidden}.progress span{height:100%;display:block;width:0;background:var(--blue);transition:.3s}
-.qcard{border:1px solid var(--line);border-radius:16px;padding:25px}.qmeta{font-size:10px;text-transform:uppercase;letter-spacing:.15em;color:var(--blue);font-weight:800}.question{font-size:20px;font-weight:700;line-height:1.4;margin:8px 0 19px}
-.option{display:block;width:100%;background:#fff;border:1px solid #dce5e8;border-radius:10px;padding:13px 15px;text-align:left;margin:8px 0;font:inherit;color:var(--ink);cursor:pointer}.option:hover{border-color:#8db1c0;background:#f8fbfc}.option.correct{border-color:#6b9d87;background:#eef7f2}.option.wrong{border-color:#c47a7e;background:#fff2f3}
-.feedback{display:none;margin-top:13px;padding:13px;border-radius:10px;background:#f5f8f9;font-size:13px}.feedback.show{display:block}.next{text-align:right;margin-top:13px}
-.result{display:none;text-align:center;padding:30px;background:#f7faf9;border-radius:16px}.result .medal{font-size:48px}.result h3{font-size:28px;margin:4px}.points{font-size:42px;color:var(--blue);font-weight:800}
-.sources{display:grid;grid-template-columns:1fr 1fr;gap:18px}.source{background:#fff;border:1px solid var(--line);border-radius:17px;padding:22px}.source h3{font-size:21px;margin:0 0 8px}.source p{font-size:13px;color:var(--muted)}.source a{color:var(--blue);font-weight:700;text-decoration:none}
-.footer{background:var(--ink);color:#dce7ea;padding:38px 0;text-align:center;font-size:12px}.footer strong{font-size:15px}.footer p{margin:5px}
-@media(max-width:850px){.links{display:none}.hero-grid,.intro{grid-template-columns:1fr}.hero-photo{height:430px;border-radius:0 0 0 55px}.learning-grid{grid-template-columns:1fr 1fr}.principle-grid{grid-template-columns:1fr 1fr}.sources{grid-template-columns:1fr}}
-@media(max-width:570px){section{padding:60px 0}.learning-grid,.steps{grid-template-columns:1fr}.quiz-wrap{padding:20px}.quiz-top{flex-direction:column}.hero-grid{gap:0}.hero-photo{height:360px}.section-head h2{font-size:32px}}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+
+body{
+ margin:0;
+ background:var(--cream);
+ color:var(--ink);
+ font-family:"DM Sans",Arial,sans-serif;
+ line-height:1.65
+}
+
+.container{
+ width:min(1120px,90%);
+ margin:auto
+}
+
+.header{
+ height:74px;
+ background:rgba(255,255,255,.94);
+ backdrop-filter:blur(15px);
+ border-bottom:1px solid var(--line);
+ position:sticky;
+ top:0;
+ z-index:50
+}
+
+.nav{
+ height:100%;
+ display:flex;
+ align-items:center;
+ justify-content:space-between
+}
+
+.logo{
+ display:flex;
+ gap:10px;
+ align-items:center;
+ text-decoration:none;
+ color:var(--ink)
+}
+
+.logo-mark{
+ width:38px;
+ height:38px;
+ border-radius:12px;
+ background:var(--blue2);
+ display:grid;
+ place-items:center
+}
+
+.logo-name{
+ font-weight:700;
+ letter-spacing:-.02em
+}
+
+.logo-sub{
+ font-size:10px;
+ color:var(--muted);
+ display:block;
+ font-weight:500
+}
+
+.links{
+ display:flex;
+ gap:25px
+}
+
+.links a{
+ text-decoration:none;
+ color:#52666e;
+ font-size:13px;
+ font-weight:600
+}
+
+.links a:hover{
+ color:var(--blue)
+}
+
+.hero{
+ background:#fff;
+ overflow:hidden
+}
+
+.hero-grid{
+ min-height:650px;
+ display:grid;
+ grid-template-columns:1.02fr .98fr;
+ align-items:center;
+ gap:55px
+}
+
+.eyebrow{
+ font-size:11px;
+ letter-spacing:.17em;
+ text-transform:uppercase;
+ font-weight:700;
+ color:var(--blue)
+}
+
+h1,h2,h3{
+ font-family:"Playfair Display",Georgia,serif
+}
+
+h1{
+ font-size:clamp(43px,5.7vw,70px);
+ line-height:1.02;
+ letter-spacing:-.035em;
+ margin:17px 0;
+ color:var(--ink)
+}
+
+.hero p{
+ font-size:18px;
+ color:var(--muted);
+ max-width:570px;
+ margin:0 0 25px
+}
+
+.btn{
+ display:inline-flex;
+ align-items:center;
+ gap:10px;
+ background:var(--ink);
+ color:#fff;
+ text-decoration:none;
+ border:0;
+ border-radius:10px;
+ padding:13px 18px;
+ font-weight:700;
+ font-size:14px;
+ cursor:pointer
+}
+
+.btn.light{
+ background:#fff;
+ color:var(--ink);
+ border:1px solid var(--line)
+}
+
+.hero-photo{
+ height:540px;
+ border-radius:0 0 0 90px;
+ background:url("https://images.pexels.com/photos/11947827/pexels-photo-11947827.jpeg?auto=compress&cs=tinysrgb&w=1400") center/cover;
+ position:relative
+}
+
+.hero-photo:after{
+ content:"";
+ position:absolute;
+ inset:0;
+ background:linear-gradient(90deg,rgba(255,255,255,.3),transparent 35%)
+}
+
+.photo-caption{
+ position:absolute;
+ z-index:2;
+ bottom:24px;
+ left:24px;
+ background:rgba(255,255,255,.9);
+ padding:11px 14px;
+ border-radius:10px;
+ font-size:11px;
+ color:var(--muted)
+}
+
+section{
+ padding:78px 0
+}
+
+.section-head{
+ max-width:700px;
+ margin:0 auto 38px;
+ text-align:center
+}
+
+.section-head h2{
+ font-size:39px;
+ line-height:1.1;
+ margin:7px 0 10px
+}
+
+.section-head p{
+ margin:0;
+ color:var(--muted)
+}
+
+.intro{
+ display:grid;
+ grid-template-columns:1.15fr .85fr;
+ gap:22px
+}
+
+.panel{
+ background:var(--paper);
+ border:1px solid var(--line);
+ border-radius:20px;
+ padding:29px;
+ box-shadow:var(--shadow)
+}
+
+.panel h3{
+ font-size:25px;
+ margin:0 0 10px
+}
+
+.panel p{
+ color:var(--muted);
+ margin-top:0
+}
+
+.note{
+ background:var(--blue2);
+ padding:16px 18px;
+ border-left:3px solid var(--blue);
+ border-radius:9px;
+ font-size:14px
+}
+
+.learning-grid{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:18px
+}
+
+.lesson{
+ background:#fff;
+ border:1px solid var(--line);
+ border-radius:18px;
+ overflow:hidden;
+ box-shadow:var(--shadow)
+}
+
+.lesson-img{
+ height:165px;
+ background-size:cover;
+ background-position:center
+}
+
+.lesson-body{
+ padding:20px
+}
+
+.lesson-number{
+ font-size:10px;
+ color:var(--gold);
+ font-weight:800;
+ letter-spacing:.15em
+}
+
+.lesson h3{
+ font-size:23px;
+ margin:6px 0
+}
+
+.lesson p{
+ font-size:13px;
+ color:var(--muted);
+ margin:0 0 14px
+}
+
+.open{
+ border:0;
+ background:none;
+ color:var(--blue);
+ font-weight:700;
+ padding:0;
+ cursor:pointer
+}
+
+.detail{
+ display:none;
+ background:#fff;
+ border:1px solid var(--line);
+ border-radius:20px;
+ margin-top:20px;
+ box-shadow:var(--shadow);
+ overflow:hidden
+}
+
+.detail.show{
+ display:block
+}
+
+.detail-head{
+ padding:25px 28px;
+ background:linear-gradient(110deg,var(--blue2),#fff)
+}
+
+.detail-head h3{
+ font-size:28px;
+ margin:0
+}
+
+.detail-head p{
+ margin:4px 0 0;
+ color:var(--muted)
+}
+
+.detail-body{
+ padding:28px
+}
+
+.steps{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:13px
+}
+
+.step{
+ background:#f8faf9;
+ border:1px solid #e5ece9;
+ border-radius:13px;
+ padding:16px;
+ font-size:14px
+}
+
+.step b{
+ color:var(--blue)
+}
+
+.alert{
+ margin-top:17px;
+ padding:15px;
+ border-radius:13px;
+ background:#f8f1ed;
+ border:1px solid #eadfd8;
+ font-size:13px
+}
+
+.principles{
+ background:#edf4f4
+}
+
+.principle-grid{
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ gap:14px
+}
+
+.principle{
+ text-align:center;
+ padding:22px 15px;
+ background:#fff;
+ border:1px solid var(--line);
+ border-radius:17px
+}
+
+.principle-icon{
+ font-size:27px
+}
+
+.principle strong{
+ display:block;
+ margin-top:8px
+}
+
+.principle span{
+ font-size:12px;
+ color:var(--muted)
+}
+
+.quiz-wrap{
+ background:#fff;
+ border:1px solid var(--line);
+ border-radius:22px;
+ padding:30px;
+ box-shadow:var(--shadow)
+}
+
+.quiz-top{
+ display:flex;
+ justify-content:space-between;
+ align-items:flex-start;
+ gap:20px
+}
+
+.quiz-top h3{
+ font-size:28px;
+ margin:0
+}
+
+.score{
+ background:var(--sage);
+ padding:7px 12px;
+ border-radius:99px;
+ font-size:12px;
+ font-weight:800;
+ white-space:nowrap
+}
+
+.progress{
+ height:7px;
+ background:#e5ecef;
+ border-radius:20px;
+ margin:20px 0 25px;
+ overflow:hidden
+}
+
+.progress span{
+ height:100%;
+ display:block;
+ width:0;
+ background:var(--blue);
+ transition:.3s
+}
+
+.qcard{
+ border:1px solid var(--line);
+ border-radius:16px;
+ padding:25px
+}
+
+.qmeta{
+ font-size:10px;
+ text-transform:uppercase;
+ letter-spacing:.15em;
+ color:var(--blue);
+ font-weight:800
+}
+
+.question{
+ font-size:20px;
+ font-weight:700;
+ line-height:1.4;
+ margin:8px 0 19px
+}
+
+.option{
+ display:block;
+ width:100%;
+ background:#fff;
+ border:1px solid #dce5e8;
+ border-radius:10px;
+ padding:13px 15px;
+ text-align:left;
+ margin:8px 0;
+ font:inherit;
+ color:var(--ink);
+ cursor:pointer
+}
+
+.option:hover{
+ border-color:#8db1c0;
+ background:#f8fbfc
+}
+
+.option.correct{
+ border-color:#6b9d87;
+ background:#eef7f2
+}
+
+.option.wrong{
+ border-color:#c47a7e;
+ background:#fff2f3
+}
+
+.feedback{
+ display:none;
+ margin-top:13px;
+ padding:13px;
+ border-radius:10px;
+ background:#f5f8f9;
+ font-size:13px
+}
+
+.feedback.show{
+ display:block
+}
+
+.next{
+ text-align:right;
+ margin-top:13px
+}
+
+.result{
+ display:none;
+ text-align:center;
+ padding:30px;
+ background:#f7faf9;
+ border-radius:16px
+}
+
+.result .medal{
+ font-size:48px
+}
+
+.result h3{
+ font-size:28px;
+ margin:4px
+}
+
+.points{
+ font-size:42px;
+ color:var(--blue);
+ font-weight:800
+}
+
+.sources{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:18px
+}
+
+.source{
+ background:#fff;
+ border:1px solid var(--line);
+ border-radius:17px;
+ padding:22px
+}
+
+.source h3{
+ font-size:21px;
+ margin:0 0 8px
+}
+
+.source p{
+ font-size:13px;
+ color:var(--muted)
+}
+
+.source a{
+ color:var(--blue);
+ font-weight:700;
+ text-decoration:none
+}
+
+.footer{
+ background:var(--ink);
+ color:#dce7ea;
+ padding:38px 0;
+ text-align:center;
+ font-size:12px
+}
+
+.footer strong{
+ font-size:15px
+}
+
+.footer p{
+ margin:5px
+}
+
+@media(max-width:850px){
+ .links{display:none}
+ .hero-grid,.intro{grid-template-columns:1fr}
+ .hero-photo{
+  height:430px;
+  border-radius:0 0 0 55px
+ }
+ .learning-grid{
+  grid-template-columns:1fr 1fr
+ }
+ .principle-grid{
+  grid-template-columns:1fr 1fr
+ }
+ .sources{
+  grid-template-columns:1fr
+ }
+}
+
+@media(max-width:570px){
+ section{
+  padding:60px 0
+ }
+
+ .learning-grid,.steps{
+  grid-template-columns:1fr
+ }
+
+ .quiz-wrap{
+  padding:20px
+ }
+
+ .quiz-top{
+  flex-direction:column
+ }
+
+ .hero-grid{
+  gap:0
+ }
+
+ .hero-photo{
+  height:360px
+ }
+
+ .section-head h2{
+  font-size:32px
+ }
+}
 </style>
 </head>
+
 <body>
+
 <header class="header">
 <div class="container nav">
-<a class="logo" href="#inicio"><span class="logo-mark">✦</span><span><span class="logo-name">Cuidar</span><span class="logo-sub">Enfermagem • Educação em Saúde</span></span></a>
-<nav class="links"><a href="#sobre">Conceito</a><a href="#conteudos">Conteúdos</a><a href="#quiz">Quiz</a><a href="#referencias">Referências</a></nav>
+
+<a class="logo" href="#inicio">
+<span class="logo-mark">✦</span>
+<span>
+<span class="logo-name">Cuidar</span>
+<span class="logo-sub">Enfermagem • Educação em Saúde</span>
+</span>
+</a>
+
+<nav class="links">
+<a href="#sobre">Conceito</a>
+<a href="#conteudos">Conteúdos</a>
+<a href="#quiz">Quiz</a>
+<a href="#referencias">Referências</a>
+</nav>
+
 </div>
 </header>
 
 <main>
+
 <section class="hero" id="inicio">
 <div class="container hero-grid">
+
 <div>
 <div class="eyebrow">Tecnologia educacional em enfermagem</div>
+
 <h1>Cuidados essenciais com o recém-nascido</h1>
-<p>Uma experiência de aprendizagem visual e interativa para conhecer os principais cuidados, reconhecer sinais de alerta e revisar conhecimentos.</p>
-<a class="btn" href="#sobre">Iniciar aprendizagem <span>→</span></a>
+
+<p>
+Uma experiência de aprendizagem visual e interativa para conhecer os principais cuidados, reconhecer sinais de alerta e revisar conhecimentos.
+</p>
+
+<a class="btn" href="#sobre">
+Iniciar aprendizagem <span>→</span>
+</a>
+
 </div>
-<div class="hero-photo"><div class="photo-caption">Imagem ilustrativa • recém-nascido</div></div>
+
+<div class="hero-photo">
+<div class="photo-caption">
+Imagem ilustrativa • recém-nascido
+</div>
+</div>
+
 </div>
 </section>
+
 
 <section id="sobre">
 <div class="container">
-<div class="section-head"><div class="eyebrow">01 • Conceito</div><h2>Antes de praticar, compreenda</h2><p>O cuidado neonatal exige atenção aos detalhes, segurança, observação e orientação da família.</p></div>
+
+<div class="section-head">
+<div class="eyebrow">01 • Conceito</div>
+<h2>Antes de praticar, compreenda</h2>
+<p>
+O cuidado neonatal exige atenção aos detalhes, segurança, observação e orientação da família.
+</p>
+</div>
+
 <div class="intro">
-<div class="panel"><h3>O recém-nascido</h3><p>Recém-nascido é o bebê no período compreendido entre o nascimento e 28 dias de vida. É uma fase de adaptação à vida extrauterina em que a assistência deve priorizar proteção, conforto, higiene, alimentação, vínculo e reconhecimento precoce de alterações.</p><div class="note"><b>Princípio da Enfermagem:</b> cada cuidado deve ser realizado com técnica, segurança, humanização e respeito às necessidades do bebê e da família.</div></div>
-<div class="panel"><h3>Objetivos de aprendizagem</h3><p>Ao final, o estudante deverá ser capaz de:</p><ul><li>compreender cuidados básicos com o RN;</li><li>identificar práticas seguras;</li><li>reconhecer sinais que merecem avaliação;</li><li>orientar a família de forma acolhedora.</li></ul></div>
+
+<div class="panel">
+<h3>O recém-nascido</h3>
+
+<p>
+Recém-nascido é o bebê no período compreendido entre o nascimento e 28 dias de vida. É uma fase de adaptação à vida extrauterina em que a assistência deve priorizar proteção, conforto, higiene, alimentação, vínculo e reconhecimento precoce de alterações.
+</p>
+
+<div class="note">
+<b>Princípio da Enfermagem:</b>
+cada cuidado deve ser realizado com técnica, segurança, humanização e respeito às necessidades do bebê e da família.
+</div>
+</div>
+
+<div class="panel">
+<h3>Objetivos de aprendizagem</h3>
+
+<p>Ao final, o estudante deverá ser capaz de:</p>
+
+<ul>
+<li>compreender cuidados básicos com o RN;</li>
+<li>identificar práticas seguras;</li>
+<li>reconhecer sinais que merecem avaliação;</li>
+<li>orientar a família de forma acolhedora.</li>
+</ul>
+
+</div>
+
 </div>
 </div>
 </section>
+
 
 <section id="conteudos">
 <div class="container">
-<div class="section-head"><div class="eyebrow">02 • Conteúdo</div><h2>Conheça os principais cuidados</h2><p>Selecione um tema para abrir a explicação completa. O quiz vem depois do conteúdo.</p></div>
-<div class="learning-grid">
-<div class="lesson"><div class="lesson-img" style="background-image:url('https://images.pexels.com/photos/6849421/pexels-photo-6849421.jpeg?auto=compress&cs=tinysrgb&w=1000')"></div><div class="lesson-body"><div class="lesson-number">MÓDULO 01</div><h3>Banho do RN</h3><p>Preparação, segurança, higiene e cuidados após o banho.</p><button class="open" onclick="lesson('banho')">Ler explicação →</button></div></div>
-<div class="lesson"><div class="lesson-img" style="background-image:url('https://images.pexels.com/photos/33508362/pexels-photo-33508362.jpeg?auto=compress&cs=tinysrgb&w=1000')"></div><div class="lesson-body"><div class="lesson-number">MÓDULO 02</div><h3>Troca de fralda</h3><p>Higiene, conforto e prevenção de acidentes.</p><button class="open" onclick="lesson('fralda')">Ler explicação →</button></div></div>
-<div class="lesson"><div class="lesson-img" style="background-image:url('https://images.pexels.com/photos/11947827/pexels-photo-11947827.jpeg?auto=compress&cs=tinysrgb&w=1000')"></div><div class="lesson-body"><div class="lesson-number">MÓDULO 03</div><h3>Coto umbilical</h3><p>Cuidados, observação e sinais de infecção.</p><button class="open" onclick="lesson('coto')">Ler explicação →</button></div></div>
-<div class="lesson"><div class="lesson-img" style="background-image:url('https://images.pexels.com/photos/3279208/pexels-photo-3279208.jpeg?auto=compress&cs=tinysrgb&w=1000')"></div><div class="lesson-body"><div class="lesson-number">MÓDULO 04</div><h3>Amamentação</h3><p>Acolhimento, posição, pega e orientação.</p><button class="open" onclick="lesson('amamentacao')">Ler explicação →</button></div></div>
-<div class="lesson"><div class="lesson-img" style="background-image:url('https://images.pexels.com/photos/30481240/pexels-photo-30481240.jpeg?auto=compress&cs=tinysrgb&w=1000')"></div><div class="lesson-body"><div class="lesson-number">MÓDULO 05</div><h3>Sinais de alerta</h3><p>Alterações que precisam ser valorizadas.</p><button class="open" onclick="lesson('alertas')">Ler explicação →</button></div></div>
-<div class="lesson"><div class="lesson-img" style="background-image:url('https://images.pexels.com/photos/11947828/pexels-photo-11947828.jpeg?auto=compress&cs=tinysrgb&w=1000')"></div><div class="lesson-body"><div class="lesson-number">MÓDULO 06</div><h3>Sono seguro</h3><p>Organização do ambiente para reduzir riscos.</p><button class="open" onclick="lesson('sono')">Ler explicação →</button></div></div>
+
+<div class="section-head">
+<div class="eyebrow">02 • Conteúdo</div>
+<h2>Conheça os principais cuidados</h2>
+<p>
+Selecione um tema para abrir a explicação completa. O quiz vem depois do conteúdo.
+</p>
 </div>
+
+<div class="learning-grid">
+
+<div class="lesson">
+<div class="lesson-img" style="background-image:url('https://images.pexels.com/photos/6849421/pexels-photo-6849421.jpeg?auto=compress&cs=tinysrgb&w=1000')"></div>
+
+<div class="lesson-body">
+<div class="lesson-number">MÓDULO 01</div>
+<h3>Banho do RN</h3>
+<p>Preparação, segurança, higiene e cuidados após o banho.</p>
+<button class="open" onclick="lesson('banho')">Ler explicação →</button>
+</div>
+</div>
+
+
+<div class="lesson">
+<div class="lesson-img" style="background-image:url('https://images.pexels.com/photos/33508362/pexels-photo-33508362.jpeg?auto=compress&cs=tinysrgb&w=1000')"></div>
+
+<div class="lesson-body">
+<div class="lesson-number">MÓDULO 02</div>
+<h3>Troca de fralda</h3>
+<p>Higiene, conforto e prevenção de acidentes.</p>
+<button class="open" onclick="lesson('fralda')">Ler explicação →</button>
+</div>
+</div>
+
+
+<div class="lesson">
+<div class="lesson-img" style="background-image:url('https://images.pexels.com/photos/11947827/pexels-photo-11947827.jpeg?auto=compress&cs=tinysrgb&w=1000')"></div>
+
+<div class="lesson-body">
+<div class="lesson-number">MÓDULO 03</div>
+<h3>Coto umbilical</h3>
+<p>Cuidados, observação e sinais de infecção.</p>
+<button class="open" onclick="lesson('coto')">Ler explicação →</button>
+</div>
+</div>
+
+
+<div class="lesson">
+<div class="lesson-img" style="background-image:url('https://images.pexels.com/photos/3279208/pexels-photo-3279208.jpeg?auto=compress&cs=tinysrgb&w=1000')"></div>
+
+<div class="lesson-body">
+<div class="lesson-number">MÓDULO 04</div>
+<h3>Amamentação</h3>
+<p>Acolhimento, posição, pega e orientação.</p>
+<button class="open" onclick="lesson('amamentacao')">Ler explicação →</button>
+</div>
+</div>
+
+
+<div class="lesson">
+<div class="lesson-img" style="background-image:url('https://images.pexels.com/photos/30481240/pexels-photo-30481240.jpeg?auto=compress&cs=tinysrgb&w=1000')"></div>
+
+<div class="lesson-body">
+<div class="lesson-number">MÓDULO 05</div>
+<h3>Sinais de alerta</h3>
+<p>Alterações que precisam ser valorizadas.</p>
+<button class="open" onclick="lesson('alertas')">Ler explicação →</button>
+</div>
+</div>
+
+
+<div class="lesson">
+<div class="lesson-img" style="background-image:url('https://images.pexels.com/photos/11947828/pexels-photo-11947828.jpeg?auto=compress&cs=tinysrgb&w=1000')"></div>
+
+<div class="lesson-body">
+<div class="lesson-number">MÓDULO 06</div>
+<h3>Sono seguro</h3>
+<p>Organização do ambiente para reduzir riscos.</p>
+<button class="open" onclick="lesson('sono')">Ler explicação →</button>
+</div>
+</div>
+
+</div>
+
 <div id="details"></div>
+
 </div>
 </section>
+
 
 <section class="principles">
+
 <div class="container">
-<div class="section-head"><div class="eyebrow">03 • Olhar da Enfermagem</div><h2>O cuidado vai além da técnica</h2><p>A assistência envolve quatro pilares que orientam a prática profissional.</p></div>
+
+<div class="section-head">
+<div class="eyebrow">03 • Olhar da Enfermagem</div>
+<h2>O cuidado vai além da técnica</h2>
+<p>
+A assistência envolve quatro pilares que orientam a prática profissional.
+</p>
+</div>
+
 <div class="principle-grid">
-<div class="principle"><div class="principle-icon">◈</div><strong>Segurança</strong><span>Prevenir riscos e acidentes.</span></div>
-<div class="principle"><div class="principle-icon">⌁</div><strong>Observação</strong><span>Perceber alterações precocemente.</span></div>
-<div class="principle"><div class="principle-icon">♡</div><strong>Humanização</strong><span>Acolher bebê e família.</span></div>
-<div class="principle"><div class="principle-icon">＋</div><strong>Educação</strong><span>Orientar com clareza e respeito.</span></div>
+
+<div class="principle">
+<div class="principle-icon">◈</div>
+<strong>Segurança</strong>
+<span>Prevenir riscos e acidentes.</span>
+</div>
+
+<div class="principle">
+<div class="principle-icon">⌁</div>
+<strong>Observação</strong>
+<span>Perceber alterações precocemente.</span>
+</div>
+
+<div class="principle">
+<div class="principle-icon">♡</div>
+<strong>Humanização</strong>
+<span>Acolher bebê e família.</span>
+</div>
+
+<div class="principle">
+<div class="principle-icon">＋</div>
+<strong>Educação</strong>
+<span>Orientar com clareza e respeito.</span>
+</div>
+
 </div>
 </div>
 </section>
+
 
 <section id="quiz">
+
 <div class="container">
-<div class="section-head"><div class="eyebrow">04 • Avaliação</div><h2>Agora, teste o que aprendeu</h2><p>Leia cada situação e escolha a alternativa mais adequada.</p></div>
-<div class="quiz-wrap">
-<div class="quiz-top"><div><h3>Quiz de revisão</h3><small style="color:var(--muted)">10 questões • feedback após cada resposta</small></div><div class="score" id="score">Pontuação: 0</div></div>
-<div class="progress"><span id="bar"></span></div>
-<div id="quiz"></div><div id="result" class="result"></div>
+
+<div class="section-head">
+<div class="eyebrow">04 • Avaliação</div>
+<h2>Agora, teste o que aprendeu</h2>
+<p>
+Leia cada situação e escolha a alternativa mais adequada.
+</p>
 </div>
-<p style="font-size:11px;color:var(--muted);margin-top:14px">Ferramenta educativa. Não substitui aulas práticas, supervisão profissional, avaliação clínica ou protocolos institucionais.</p>
+
+<div class="quiz-wrap">
+
+<div class="quiz-top">
+
+<div>
+<h3>Quiz de revisão</h3>
+<small style="color:var(--muted)">
+10 questões • feedback após cada resposta
+</small>
+</div>
+
+<div class="score" id="score">
+Pontuação: 0
+</div>
+
+</div>
+
+<div class="progress">
+<span id="bar"></span>
+</div>
+
+<!-- CORREÇÃO: ID alterado de quiz para quiz-container -->
+<div id="quiz-container"></div>
+
+<div id="result" class="result"></div>
+
+</div>
+
+<p style="font-size:11px;color:var(--muted);margin-top:14px">
+Ferramenta educativa. Não substitui aulas práticas, supervisão profissional, avaliação clínica ou protocolos institucionais.
+</p>
+
 </div>
 </section>
+
 
 <section id="referencias">
+
 <div class="container">
-<div class="section-head"><div class="eyebrow">05 • Base científica</div><h2>Referências</h2><p>Fontes oficiais para fundamentação do conteúdo.</p></div>
+
+<div class="section-head">
+<div class="eyebrow">05 • Base científica</div>
+<h2>Referências</h2>
+<p>
+Fontes oficiais para fundamentação do conteúdo.
+</p>
+</div>
+
 <div class="sources">
-<div class="source"><h3>Ministério da Saúde</h3><p>Materiais oficiais sobre saúde da criança e atenção ao recém-nascido.</p><a href="https://www.gov.br/saude/pt-br/assuntos/saude-da-crianca" target="_blank">Saúde da Criança →</a></div>
-<div class="source"><h3>Ministério da Saúde</h3><p>Orientações oficiais sobre aleitamento materno.</p><a href="https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/a/aleitamento-materno" target="_blank">Aleitamento Materno →</a></div>
-<div class="source"><h3>Fiocruz</h3><p>Conteúdos técnicos do Portal de Boas Práticas para atenção ao recém-nascido.</p><a href="https://portaldeboaspraticas.iff.fiocruz.br/atencao-recem-nascido/" target="_blank">Portal de Boas Práticas →</a></div>
-<div class="source"><h3>Imagens</h3><p>Fotografias ilustrativas utilizadas no protótipo. Para a versão final, conferir a licença e manter os créditos da plataforma.</p><a href="https://www.pexels.com/" target="_blank">Pexels →</a></div>
+
+<div class="source">
+<h3>Ministério da Saúde</h3>
+<p>
+Materiais oficiais sobre saúde da criança e atenção ao recém-nascido.
+</p>
+<a href="https://www.gov.br/saude/pt-br/assuntos/saude-da-crianca" target="_blank">
+Saúde da Criança →
+</a>
+</div>
+
+<div class="source">
+<h3>Ministério da Saúde</h3>
+<p>
+Orientações oficiais sobre aleitamento materno.
+</p>
+<a href="https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/a/aleitamento-materno" target="_blank">
+Aleitamento Materno →
+</a>
+</div>
+
+<div class="source">
+<h3>Fiocruz</h3>
+<p>
+Conteúdos técnicos do Portal de Boas Práticas para atenção ao recém-nascido.
+</p>
+<a href="https://portaldeboaspraticas.iff.fiocruz.br/atencao-recem-nascido/" target="_blank">
+Portal de Boas Práticas →
+</a>
+</div>
+
+<div class="source">
+<h3>Imagens</h3>
+<p>
+Fotografias ilustrativas utilizadas no protótipo. Para a versão final, conferir a licença e manter os créditos da plataforma.
+</p>
+<a href="https://www.pexels.com/" target="_blank">
+Pexels →
+</a>
+</div>
+
 </div>
 </div>
 </section>
+
 </main>
 
-<footer class="footer"><div class="container"><strong>Cuidar</strong><p>Cuidados essenciais com o recém-nascido</p><p>Projeto acadêmico • Tecnologia Educacional em Enfermagem</p></div></footer>
+
+<footer class="footer">
+
+<div class="container">
+<strong>Cuidar</strong>
+<p>Cuidados essenciais com o recém-nascido</p>
+<p>Projeto acadêmico • Tecnologia Educacional em Enfermagem</p>
+</div>
+
+</footer>
+
 
 <script>
+
 const data={
-banho:{title:"Banho do recém-nascido",intro:"O banho deve ser planejado para higiene, conforto e segurança, evitando perda de calor e situações de risco.",sections:[
-["Preparação",[["01","Organize previamente toalha, roupas e materiais necessários."],["02","Mantenha o ambiente aquecido e sem correntes de ar."],["03","Nunca deixe o recém-nascido sozinho durante o banho."],["04","Teste a água antes de colocar o bebê; o manual do Ministério da Saúde consultado orienta água morna, em torno de 36–37 °C."]]],
-["Durante",[["01","Apoie adequadamente a cabeça e o corpo do bebê."],["02","Realize a higiene delicadamente, evitando produtos nos olhos e ouvidos."],["03","Mantenha o cuidado contínuo e o bebê sob supervisão."],["04","Evite interrupções que exijam afastamento do recém-nascido."]]],
-["Finalização",[["01","Enxágue adequadamente."],["02","Seque cuidadosamente, inclusive as dobras."],["03","Vista o bebê no mesmo ambiente para reduzir exposição ao frio."]]]],note:"A técnica deve seguir as orientações da instituição de ensino e os protocolos do serviço."},
-fralda:{title:"Troca de fralda",intro:"A troca de fralda é um cuidado de higiene e conforto e também permite observar a pele e o estado geral do bebê.",sections:[
-["Passo a passo",[["01","Higienize as mãos antes e depois do cuidado."],["02","Separe os materiais antes de colocar o bebê na superfície de troca."],["03","Mantenha o recém-nascido sob supervisão contínua."],["04","Realize a limpeza delicadamente e observe a pele."]]],
-["O que observar",[["01","Vermelhidão, irritação ou lesões."],["02","Alterações nas dobras da pele."],["03","Mudanças relevantes nas eliminações."],["04","Condição do coto umbilical, quando ainda presente."]]]],note:"Nunca deixe o bebê sozinho em superfície elevada, mesmo por poucos segundos."},
-coto:{title:"Coto umbilical",intro:"O coto passa por um processo natural de secagem. O cuidado busca reduzir o risco de infecção e reconhecer alterações.",sections:[
-["Cuidados",[["01","Higienize as mãos antes de manipular a região."],["02","Mantenha o coto limpo e seco."],["03","Evite faixas, moedas, ervas ou produtos caseiros."],["04","Evite manipulação desnecessária."]]],
-["Sinais de atenção",[["01","Observe vermelhidão ao redor."],["02","Observe edema ou secreção."],["03","Mau odor é uma alteração que merece atenção."],["04","Alterações importantes devem ser avaliadas por profissional."]]]],note:"A orientação específica sobre produtos/antissépticos deve seguir o protocolo do serviço de saúde."},
-amamentacao:{title:"Amamentação",intro:"A enfermagem atua no acolhimento, na observação da mamada e na educação da família.",sections:[
-["Posição e pega",[["01","Mantenha o bebê bem apoiado e voltado para a mãe."],["02","A cabeça deve ficar alinhada ao corpo e de frente para a mama."],["03","A pega ocorre quando o bebê abre bem a boca."],["04","Na pega adequada, o queixo toca a mama, os lábios ficam para fora e o nariz permanece livre."]]],
-["Orientação",[["01","O aleitamento materno exclusivo é recomendado nos primeiros 6 meses."],["02","O bebê pode mamar várias vezes ao dia e à noite."],["03","Dor persistente ou dificuldade na pega merece avaliação."],["04","A orientação deve respeitar as necessidades da mãe e do bebê."]]]],note:"O Ministério da Saúde recomenda aleitamento materno exclusivo até 6 meses e continuidade até 2 anos ou mais, com alimentação complementar adequada após esse período inicial."},
-alertas:{title:"Sinais de alerta",intro:"Reconhecer alterações é essencial. O objetivo é identificar quando o recém-nascido precisa de avaliação, não realizar diagnóstico pelo site.",sections:[
-["Alterações importantes",[["01","Dificuldade para respirar ou alteração importante do padrão respiratório."],["02","Recusa persistente das mamadas ou dificuldade importante para se alimentar."],["03","Prostração ou redução importante da responsividade."],["04","Alterações importantes da temperatura ou sinais de infecção."]]],
-["Coto umbilical",[["01","Vermelhidão ao redor do umbigo."],["02","Edema ou secreção com aspecto anormal."],["03","Mau odor."],["04","Diante de alteração importante, procurar avaliação profissional."]]]],note:"Em recém-nascidos, alterações podem evoluir rapidamente. Na dúvida, procure orientação de um profissional ou serviço de saúde."},
-sono:{title:"Sono seguro",intro:"O ambiente de sono deve ser organizado para reduzir riscos e as recomendações devem ser explicadas à família de forma simples.",sections:[
-["Princípios",[["01","Coloque o bebê para dormir de barriga para cima."],["02","Utilize superfície firme e plana."],["03","Mantenha o espaço livre de travesseiros, brinquedos, protetores e objetos soltos."],["04","Prefira espaço próprio para o bebê, no mesmo quarto dos pais/cuidadores, sem compartilhar a mesma cama."]]],
-["Educação",[["01","Explique o motivo das recomendações."],["02","Observe o ambiente de sono quando possível."],["03","Evite exposição do bebê à fumaça do tabaco."],["04","Reforce a segurança em todos os momentos de descanso."]]]],note:"Siga as recomendações atualizadas do serviço e das autoridades de saúde."}
-};
-function lesson(k){
-const d=data[k];let h=`<div class="detail show"><div class="detail-head"><h3>${d.title}</h3><p>${d.intro}</p></div><div class="detail-body">`;
-d.sections.forEach(s=>{h+=`<h4 style="font-family:'DM Sans';color:var(--ink);margin:0 0 10px;font-size:17px">${s[0]}</h4><div class="steps">`;s[1].forEach(x=>h+=`<div class="step"><b>${x[0]}</b> ${x[1]}</div>`);h+=`</div>`});
-h+=`<div class="alert"><b>Importante:</b> ${d.note}</div></div></div>`;
-document.getElementById("details").innerHTML=h;document.getElementById("details").scrollIntoView({behavior:"smooth",block:"center"});
+
+banho:{
+title:"Banho do recém-nascido",
+intro:"O banho deve ser planejado para higiene, conforto e segurança, evitando perda de calor e situações de risco.",
+sections:[
+
+["Preparação",[
+["01","Organize previamente toalha, roupas e materiais necessários."],
+["02","Mantenha o ambiente aquecido e sem correntes de ar."],
+["03","Nunca deixe o recém-nascido sozinho durante o banho."],
+["04","Teste a água antes de colocar o bebê; o manual do Ministério da Saúde consultado orienta água morna, em torno de 36–37 °C."]
+]],
+
+["Durante",[
+["01","Apoie adequadamente a cabeça e o corpo do bebê."],
+["02","Realize a higiene delicadamente, evitando produtos nos olhos e ouvidos."],
+["03","Mantenha o cuidado contínuo e o bebê sob supervisão."],
+["04","Evite interrupções que exijam afastamento do recém-nascido."]
+]],
+
+["Finalização",[
+["01","Enxágue adequadamente."],
+["02","Seque cuidadosamente, inclusive as dobras."],
+["03","Vista o bebê no mesmo ambiente para reduzir exposição ao frio."]
+]]
+
+],
+note:"A técnica deve seguir as orientações da instituição de ensino e os protocolos do serviço."
+},
+
+
+fralda:{
+title:"Troca de fralda",
+intro:"A troca de fralda é um cuidado de higiene e conforto e também permite observar a pele e o estado geral do bebê.",
+sections:[
+
+["Passo a passo",[
+["01","Higienize as mãos antes e depois do cuidado."],
+["02","Separe os materiais antes de colocar o bebê na superfície de troca."],
+["03","Mantenha o recém-nascido sob supervisão contínua."],
+["04","Realize a limpeza delicadamente e observe a pele."]
+]],
+
+["O que observar",[
+["01","Vermelhidão, irritação ou lesões."],
+["02","Alterações nas dobras da pele."],
+["03","Mudanças relevantes nas eliminações."],
+["04","Condição do coto umbilical, quando ainda presente."]
+]]
+
+],
+note:"Nunca deixe o bebê sozinho em superfície elevada, mesmo por poucos segundos."
+},
+
+
+coto:{
+title:"Coto umbilical",
+intro:"O coto passa por um processo natural de secagem. O cuidado busca reduzir o risco de infecção e reconhecer alterações.",
+sections:[
+
+["Cuidados",[
+["01","Higienize as mãos antes de manipular a região."],
+["02","Mantenha o coto limpo e seco."],
+["03","Evite faixas, moedas, ervas ou produtos caseiros."],
+["04","Evite manipulação desnecessária."]
+]],
+
+["Sinais de atenção",[
+["01","Observe vermelhidão ao redor."],
+["02","Observe edema ou secreção."],
+["03","Mau odor é uma alteração que merece atenção."],
+["04","Alterações importantes devem ser avaliadas por profissional."]
+]]
+
+],
+note:"A orientação específica sobre produtos/antissépticos deve seguir o protocolo do serviço de saúde."
+},
+
+
+amamentacao:{
+title:"Amamentação",
+intro:"A enfermagem atua no acolhimento, na observação da mamada e na educação da família.",
+sections:[
+
+["Posição e pega",[
+["01","Mantenha o bebê bem apoiado e voltado para a mãe."],
+["02","A cabeça deve ficar alinhada ao corpo e de frente para a mama."],
+["03","A pega ocorre quando o bebê abre bem a boca."],
+["04","Na pega adequada, o queixo toca a mama, os lábios ficam para fora e o nariz permanece livre."]
+]],
+
+["Orientação",[
+["01","O aleitamento materno exclusivo é recomendado nos primeiros 6 meses."],
+["02","O bebê pode mamar várias vezes ao dia e à noite."],
+["03","Dor persistente ou dificuldade na pega merece avaliação."],
+["04","A orientação deve respeitar as necessidades da mãe e do bebê."]
+]]
+
+],
+note:"O Ministério da Saúde recomenda aleitamento materno exclusivo até 6 meses e continuidade até 2 anos ou mais, com alimentação complementar adequada após esse período inicial."
+},
+
+
+alertas:{
+title:"Sinais de alerta",
+intro:"Reconhecer alterações é essencial. O objetivo é identificar quando o recém-nascido precisa de avaliação, não realizar diagnóstico pelo site.",
+sections:[
+
+["Alterações importantes",[
+["01","Dificuldade para respirar ou alteração importante do padrão respiratório."],
+["02","Recusa persistente das mamadas ou dificuldade importante para se alimentar."],
+["03","Prostração ou redução importante da responsividade."],
+["04","Alterações importantes da temperatura ou sinais de infecção."]
+]],
+
+["Coto umbilical",[
+["01","Vermelhidão ao redor do umbigo."],
+["02","Edema ou secreção com aspecto anormal."],
+["03","Mau odor."],
+["04","Diante de alteração importante, procurar avaliação profissional."]
+]]
+
+],
+note:"Em recém-nascidos, alterações podem evoluir rapidamente. Na dúvida, procure orientação de um profissional ou serviço de saúde."
+},
+
+
+sono:{
+title:"Sono seguro",
+intro:"O ambiente de sono deve ser organizado para reduzir riscos e as recomendações devem ser explicadas à família de forma simples.",
+sections:[
+
+["Princípios",[
+["01","Coloque o bebê para dormir de barriga para cima."],
+["02","Utilize superfície firme e plana."],
+["03","Mantenha o espaço livre de travesseiros, brinquedos, protetores e objetos soltos."],
+["04","Prefira espaço próprio para o bebê, no mesmo quarto dos pais/cuidadores, sem compartilhar a mesma cama."]
+]],
+
+["Educação",[
+["01","Explique o motivo das recomendações."],
+["02","Observe o ambiente de sono quando possível."],
+["03","Evite exposição do bebê à fumaça do tabaco."],
+["04","Reforce a segurança em todos os momentos de descanso."]
+]]
+
+],
+note:"Siga as recomendações atualizadas do serviço e das autoridades de saúde."
 }
 
+};
+
+
+function lesson(k){
+
+const d=data[k];
+
+let h=`
+<div class="detail show">
+
+<div class="detail-head">
+<h3>${d.title}</h3>
+<p>${d.intro}</p>
+</div>
+
+<div class="detail-body">
+`;
+
+d.sections.forEach(s=>{
+
+h+=`
+<h4 style="font-family:'DM Sans';color:var(--ink);margin:0 0 10px;font-size:17px">
+${s[0]}
+</h4>
+
+<div class="steps">
+`;
+
+s[1].forEach(x=>{
+
+h+=`
+<div class="step">
+<b>${x[0]}</b> ${x[1]}
+</div>
+`;
+
+});
+
+h+=`</div>`;
+
+});
+
+h+=`
+<div class="alert">
+<b>Importante:</b> ${d.note}
+</div>
+
+</div>
+</div>
+`;
+
+document.getElementById("details").innerHTML=h;
+
+document.getElementById("details").scrollIntoView({
+behavior:"smooth",
+block:"center"
+});
+
+}
+
+
 const qs=[
-["Antes do banho, qual conduta aumenta a segurança? ",["Organizar previamente os materiais","Buscar materiais depois de começar","Deixar o bebê sozinho por alguns instantes","Colocar o bebê na água antes de verificar"],0,"Organizar tudo antes evita afastamentos e mantém o bebê sob supervisão."],
-["Qual temperatura da água é orientada no manual do Ministério da Saúde consultado para o banho do RN?",["36–37 °C","28–29 °C","40–42 °C","45–46 °C"],0,"O manual consultado orienta água morna, em torno de 36–37 °C."],
-["Qual cuidado é adequado para o coto umbilical?",["Aplicar produto caseiro","Mantê-lo limpo e seco conforme orientação","Cobrir com faixa apertada","Manipular frequentemente"],1,"O cuidado prioriza higiene, manutenção do local limpo e seco e evita práticas caseiras."],
-["Qual alteração do umbigo merece avaliação?",["Coto secando","Queda do coto no período esperado","Vermelhidão associada a secreção ou mau odor","Coto ainda presente nos primeiros dias"],2,"Vermelhidão, secreção e mau odor podem indicar alteração que precisa ser avaliada."],
-["Qual recomendação de aleitamento é apresentada pelo Ministério da Saúde para os primeiros 6 meses?",["Aleitamento materno exclusivo","Leite e água diariamente","Leite e chá","Leite e suco"],0,"A recomendação é aleitamento materno exclusivo nos primeiros 6 meses."],
-["Qual característica indica uma pega adequada?",["Nariz pressionado e lábios para dentro","Queixo encostado, lábios para fora e nariz livre","Bebê afastado do corpo","Sucção somente na ponta do mamilo"],1,"Uma boa pega envolve apoio adequado, queixo na mama, lábios para fora e nariz livre."],
-["Na troca de fralda, qual conduta é mais segura?",["Afastar-se para pegar a fralda","Deixar o bebê sozinho se estiver quieto","Manter supervisão e materiais ao alcance","Virar o bebê e sair rapidamente"],2,"Supervisão contínua e materiais previamente organizados reduzem riscos."],
-["Qual situação é um sinal de alerta?",["Dificuldade importante para respirar","Sono após uma mamada","Choro durante a troca","Movimentos durante o sono"],0,"Dificuldade respiratória deve ser valorizada e avaliada adequadamente."],
-["Qual posição é recomendada para o sono seguro?",["Barriga para baixo","De lado com travesseiros","Barriga para cima","Sentado em superfície inclinada"],2,"Orientações de sono seguro recomendam colocar o bebê de barriga para cima."],
-["Qual é a função do quiz nesta tecnologia educacional?",["Substituir a aula prática","Diagnosticar doenças","Reforçar e avaliar a aprendizagem","Substituir protocolos"],2,"O quiz reforça e avalia a aprendizagem; não substitui prática, supervisão ou protocolos."]
+
+[
+"Antes do banho, qual conduta aumenta a segurança?",
+[
+"Organizar previamente os materiais",
+"Buscar materiais depois de começar",
+"Deixar o bebê sozinho por alguns instantes",
+"Colocar o bebê na água antes de verificar"
+],
+0,
+"Organizar tudo antes evita afastamentos e mantém o bebê sob supervisão."
+],
+
+[
+"Qual temperatura da água é orientada no manual do Ministério da Saúde consultado para o banho do RN?",
+[
+"36–37 °C",
+"28–29 °C",
+"40–42 °C",
+"45–46 °C"
+],
+0,
+"O manual consultado orienta água morna, em torno de 36–37 °C."
+],
+
+[
+"Qual cuidado é adequado para o coto umbilical?",
+[
+"Aplicar produto caseiro",
+"Mantê-lo limpo e seco conforme orientação",
+"Cobrir com faixa apertada",
+"Manipular frequentemente"
+],
+1,
+"O cuidado prioriza higiene, manutenção do local limpo e seco e evita práticas caseiras."
+],
+
+[
+"Qual alteração do umbigo merece avaliação?",
+[
+"Coto secando",
+"Queda do coto no período esperado",
+"Vermelhidão associada a secreção ou mau odor",
+"Coto ainda presente nos primeiros dias"
+],
+2,
+"Vermelhidão, secreção e mau odor podem indicar alteração que precisa ser avaliada."
+],
+
+[
+"Qual recomendação de aleitamento é apresentada pelo Ministério da Saúde para os primeiros 6 meses?",
+[
+"Aleitamento materno exclusivo",
+"Leite e água diariamente",
+"Leite e chá",
+"Leite e suco"
+],
+0,
+"A recomendação é aleitamento materno exclusivo nos primeiros 6 meses."
+],
+
+[
+"Qual característica indica uma pega adequada?",
+[
+"Nariz pressionado e lábios para dentro",
+"Queixo encostado, lábios para fora e nariz livre",
+"Bebê afastado do corpo",
+"Sucção somente na ponta do mamilo"
+],
+1,
+"Uma boa pega envolve apoio adequado, queixo na mama, lábios para fora e nariz livre."
+],
+
+[
+"Na troca de fralda, qual conduta é mais segura?",
+[
+"Afastar-se para pegar a fralda",
+"Deixar o bebê sozinho se estiver quieto",
+"Manter supervisão e materiais ao alcance",
+"Virar o bebê e sair rapidamente"
+],
+2,
+"Supervisão contínua e materiais previamente organizados reduzem riscos."
+],
+
+[
+"Qual situação é um sinal de alerta?",
+[
+"Dificuldade importante para respirar",
+"Sono após uma mamada",
+"Choro durante a troca",
+"Movimentos durante o sono"
+],
+0,
+"Dificuldade respiratória deve ser valorizada e avaliada adequadamente."
+],
+
+[
+"Qual posição é recomendada para o sono seguro?",
+[
+"Barriga para baixo",
+"De lado com travesseiros",
+"Barriga para cima",
+"Sentado em superfície inclinada"
+],
+2,
+"Orientações de sono seguro recomendam colocar o bebê de barriga para cima."
+],
+
+[
+"Qual é a função do quiz nesta tecnologia educacional?",
+[
+"Substituir a aula prática",
+"Diagnosticar doenças",
+"Reforçar e avaliar a aprendizagem",
+"Substituir protocolos"
+],
+2,
+"O quiz reforça e avalia a aprendizagem; não substitui prática, supervisão ou protocolos."
+]
+
 ];
-let qi=0,score=0,locked=false;
-function render(){locked=false;let q=qs[qi];document.getElementById("bar").style.width=(qi/qs.length*100)+"%";document.getElementById("score").textContent="Pontuação: "+score;
-let h=`<div class="qcard"><div class="qmeta">Questão ${qi+1} de ${qs.length}</div><div class="question">${q[0]}</div>`;
-q[1].forEach((x,i)=>h+=`<button class="option" onclick="answer(${i})">${String.fromCharCode(65+i)}) ${x}</button>`);
-h+=`<div id="fb" class="feedback"></div><div class="next"><button id="next" class="btn" style="display:none" onclick="next()">Próxima →</button></div></div>`;document.getElementById("quiz").innerHTML=h}
-function answer(i){if(locked)return;locked=true;let q=qs[qi],o=document.querySelectorAll(".option");o[i].classList.add(i===q[2]?"correct":"wrong");if(i!==q[2])o[q[2]].classList.add("correct");if(i===q[2])score++;document.getElementById("score").textContent="Pontuação: "+score;let f=document.getElementById("fb");f.innerHTML=(i===q[2]?"✓ <b>Resposta correta.</b> ":"↗ <b>Vamos revisar.</b> ")+q[3];f.classList.add("show");document.getElementById("next").style.display="inline-flex"}
-function next(){qi++;if(qi<qs.length)render();else finish()}
-function finish(){document.getElementById("bar").style.width="100%";document.getElementById("quiz").innerHTML="";let r=document.getElementById("result"),m=score>=9?"Excelente desempenho.":score>=7?"Muito bem. Revise os pontos que ficaram em dúvida.":score>=5?"Bom começo. Volte aos módulos e tente novamente.":"Continue estudando e revise o conteúdo antes de refazer o quiz.";r.innerHTML=`<div class="medal">✦</div><h3>Quiz concluído</h3><div class="points">${score}/10</div><p>${m}</p><button class="btn" onclick="restart()">Refazer quiz</button>`;r.style.display="block"}
-function restart(){qi=0;score=0;document.getElementById("result").style.display="none";render()}
+
+
+let qi=0;
+let score=0;
+let locked=false;
+
+
+function render(){
+
+locked=false;
+
+let q=qs[qi];
+
+document.getElementById("bar").style.width=
+(qi/qs.length*100)+"%";
+
+document.getElementById("score").textContent=
+"Pontuação: "+score;
+
+
+let h=`
+<div class="qcard">
+
+<div class="qmeta">
+Questão ${qi+1} de ${qs.length}
+</div>
+
+<div class="question">
+${q[0]}
+</div>
+`;
+
+
+q[1].forEach((x,i)=>{
+
+h+=`
+<button class="option" onclick="answer(${i})">
+${String.fromCharCode(65+i)}) ${x}
+</button>
+`;
+
+});
+
+
+h+=`
+
+<div id="fb" class="feedback"></div>
+
+<div class="next">
+<button id="next"
+class="btn"
+style="display:none"
+onclick="next()">
+Próxima →
+</button>
+</div>
+
+</div>
+`;
+
+
+/* CORREÇÃO PRINCIPAL:
+   Agora o JavaScript escreve dentro de quiz-container
+   e não dentro da seção #quiz.
+*/
+
+document.getElementById("quiz-container").innerHTML=h;
+
+}
+
+
+function answer(i){
+
+if(locked)return;
+
+locked=true;
+
+let q=qs[qi];
+
+let o=document.querySelectorAll(".option");
+
+o[i].classList.add(
+i===q[2] ? "correct" : "wrong"
+);
+
+if(i!==q[2]){
+o[q[2]].classList.add("correct");
+}
+
+if(i===q[2]){
+score++;
+}
+
+document.getElementById("score").textContent=
+"Pontuação: "+score;
+
+let f=document.getElementById("fb");
+
+f.innerHTML=
+(i===q[2]
+?"✓ <b>Resposta correta.</b> "
+:"↗ <b>Vamos revisar.</b> ")
++q[3];
+
+f.classList.add("show");
+
+document.getElementById("next").style.display=
+"inline-flex";
+
+}
+
+
+function next(){
+
+qi++;
+
+if(qi<qs.length){
+
 render();
+
+}else{
+
+finish();
+
+}
+
+}
+
+
+function finish(){
+
+document.getElementById("bar").style.width="100%";
+
+/* CORREÇÃO PRINCIPAL */
+document.getElementById("quiz-container").innerHTML="";
+
+let r=document.getElementById("result");
+
+let m=
+score>=9
+?"Excelente desempenho."
+:
+score>=7
+?"Muito bem. Revise os pontos que ficaram em dúvida."
+:
+score>=5
+?"Bom começo. Volte aos módulos e tente novamente."
+:
+"Continue estudando e revise o conteúdo antes de refazer o quiz.";
+
+r.innerHTML=`
+
+<div class="medal">✦</div>
+
+<h3>Quiz concluído</h3>
+
+<div class="points">
+${score}/10
+</div>
+
+<p>${m}</p>
+
+<button class="btn" onclick="restart()">
+Refazer quiz
+</button>
+
+`;
+
+r.style.display="block";
+
+}
+
+
+function restart(){
+
+qi=0;
+score=0;
+
+document.getElementById("result").style.display="none";
+
+render();
+
+}
+
+
+/* Inicia o quiz */
+render();
+
 </script>
+
 </body>
 </html>
